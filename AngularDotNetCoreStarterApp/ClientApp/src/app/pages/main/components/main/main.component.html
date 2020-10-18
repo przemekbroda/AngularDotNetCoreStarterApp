@@ -1,0 +1,14 @@
+<div id="outer">
+  <app-toolbar></app-toolbar>
+
+  <mat-drawer-container id="remaining" style="height: 100%;">
+    <mat-drawer mode="side" style="width: 220px;" opened>
+      <app-navbar></app-navbar>
+    </mat-drawer>
+    <mat-drawer-content style="display: flex; flex-direction: column;">
+      <div style="margin-left: 40px; margin-right: 40px; margin-top: 8px; flex: 1;">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

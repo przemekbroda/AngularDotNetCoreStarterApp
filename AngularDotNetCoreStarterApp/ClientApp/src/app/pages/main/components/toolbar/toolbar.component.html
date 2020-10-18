@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>
+    <img src="https://pbs.twimg.com/profile_images/3103894633/e0d179fc5739a20308331b432e4f3a51.jpeg" class="profile-photo">
+    {{username}}
+  </span>
+  <span class="spacer"></span>
+  <mat-spinner color="accent" diameter="25"></mat-spinner>
+  <button mat-icon-button aria-label="Logout" matTooltip="Logout" (click)="logout()">
+    <mat-icon >exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
