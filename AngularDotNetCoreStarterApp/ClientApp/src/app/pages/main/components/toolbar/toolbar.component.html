@@ -1,10 +1,15 @@
 <mat-toolbar color="primary">
-  <span>
+  <div style="display: flex; align-items: center;">
     <img src="https://pbs.twimg.com/profile_images/3103894633/e0d179fc5739a20308331b432e4f3a51.jpeg" class="profile-photo">
-    {{username}}
-  </span>
+    <span *ngIf="username">
+      {{username}}
+    </span>
+  </div>
   <span class="spacer"></span>
-  <mat-spinner color="accent" diameter="25"></mat-spinner>
+  <mat-spinner color="accent" diameter="25" style="margin-right: 10px;"></mat-spinner>
+  <mat-icon aria-hidden="false" *ngIf="!isInternetConnection" aria-label="Internet connection error" style="margin-right: 4px;" color="accent" matTooltip="Internet connection error">
+    signal_wifi_off
+  </mat-icon>
   <button mat-icon-button aria-label="Logout" matTooltip="Logout" (click)="logout()">
     <mat-icon >exit_to_app</mat-icon>
   </button>

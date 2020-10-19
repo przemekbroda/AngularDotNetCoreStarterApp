@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { TokenInterceptor } from './service/token-interceptor.service';
+import { ConnectionServiceModule } from 'ng-connection-service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TokenInterceptor } from './service/token-interceptor.service';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ConnectionServiceModule,
   ],
   providers: [
     {

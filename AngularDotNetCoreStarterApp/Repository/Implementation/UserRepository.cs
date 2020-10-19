@@ -18,6 +18,7 @@ namespace AngularDotNetCoreStarterApp.Repository
         {
             return await _context
                 .Users
+                .Include(u => u.PasswordHash)
                 .Where(u => u.Username.ToLower() == username.ToLower())
                 .FirstOrDefaultAsync();
         }
