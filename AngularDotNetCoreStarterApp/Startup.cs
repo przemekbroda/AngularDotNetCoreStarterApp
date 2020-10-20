@@ -6,7 +6,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,6 +38,11 @@ namespace AngularDotNetCoreStarterApp
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("test", policy => policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme, ApiKeyAuthOptions.DefaultScheme).RequireAuthenticatedUser().RequireAuthenticatedUser().RequireAssertion(ctx => ctx.User.Identities.Count() == 2));
+            //});
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
