@@ -10,10 +10,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/register/register.component';
+import { RepeatedValueValidatorDirective } from '../../directive/repeated-value-validator.directive';
 
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [AuthComponent, RegisterComponent, RepeatedValueValidatorDirective],
   imports: [
     CommonModule,
     AuthRoutingModule,

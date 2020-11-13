@@ -22,6 +22,7 @@
       </mat-card-content>
       <mat-card-actions style="margin-left: 1px;">
         <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Sign In</button>
+        <button (click)="onRegister()" mat-button>Register</button>
       </mat-card-actions>
     </mat-card>
   </form>

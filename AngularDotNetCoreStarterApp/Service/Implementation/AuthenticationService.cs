@@ -35,7 +35,8 @@ namespace AngularDotNetCoreStarterApp.Service.Implementation
             return new AuthenticationDataForSignInResultDto()
             {
                 AccessToken = _tokenService.GenerateAccessToken(user, DateTime.UtcNow.AddSeconds(int.Parse(_config.GetSection("AppSettings:AccessTokenLifeTimeInSeconds").Value))),
-                RefreshToken = _tokenService.GenerateRefreshToken(user, DateTime.UtcNow.AddSeconds(int.Parse(_config.GetSection("AppSettings:RefreshTokenLifeTimeInSeconds").Value)))
+                RefreshToken = _tokenService.GenerateRefreshToken(user, DateTime.UtcNow.AddSeconds(int.Parse(_config.GetSection("AppSettings:RefreshTokenLifeTimeInSeconds").Value))),
+                TokenType = "Bearer"
             };
         }
 
@@ -56,7 +57,8 @@ namespace AngularDotNetCoreStarterApp.Service.Implementation
             return new AuthenticationDataForSignInResultDto()
             {
                 AccessToken = _tokenService.GenerateAccessToken(user, DateTime.UtcNow.AddMinutes(int.Parse(_config.GetSection("AppSettings:AccessTokenLifeTimeInSeconds").Value))),
-                RefreshToken = _tokenService.GenerateRefreshToken(user, DateTime.UtcNow.AddDays(int.Parse(_config.GetSection("AppSettings:RefreshTokenLifeTimeInSeconds").Value)))
+                RefreshToken = _tokenService.GenerateRefreshToken(user, DateTime.UtcNow.AddDays(int.Parse(_config.GetSection("AppSettings:RefreshTokenLifeTimeInSeconds").Value))),
+                TokenType = "Bearer"
             };
         }
 

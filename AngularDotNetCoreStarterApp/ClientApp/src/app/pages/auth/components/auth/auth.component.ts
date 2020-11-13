@@ -42,4 +42,8 @@ export class AuthComponent implements OnInit {
       }
     });
   }
+
+  onRegister() {
+    this.router.navigate(['.', 'register'], {relativeTo: this.route});
+  }
 }

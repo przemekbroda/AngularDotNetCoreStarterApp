@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace AngularDotNetCoreStarterApp.Service
@@ -79,7 +80,7 @@ namespace AngularDotNetCoreStarterApp.Service
 
             var descriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
+                Subject = new ClaimsIdentity(claims, "jwt"),
                 Expires = expireAt,
                 SigningCredentials = credentials
             };

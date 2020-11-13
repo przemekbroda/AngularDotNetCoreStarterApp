@@ -41,7 +41,7 @@ namespace AngularDotNetCoreStarterApp
 
             //services.AddAuthorization(options =>
             //{
-            //    options.AddPolicy("test", policy => policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme, ApiKeyAuthOptions.DefaultScheme).RequireAuthenticatedUser().RequireAuthenticatedUser().RequireAssertion(ctx => ctx.User.Identities.Count() == 2));
+            //    options.AddPolicy("test", policy => policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme, ApiKeyAuthOptions.DefaultScheme).RequireAuthenticatedUser().RequireAssertion(ctx => ctx.User.Identities.Count() == 2));
             //});
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>

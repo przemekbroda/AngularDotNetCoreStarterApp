@@ -12,16 +12,16 @@ import { AuthenticationRepositoryService } from '../repository/authentication-re
 export class AuthenticationService {
 
   private currentUsernameSubject = new BehaviorSubject<string>(null);
-  public username = this.currentUsernameSubject.asObservable();
+  username = this.currentUsernameSubject.asObservable();
 
   private newAccessTokenSubject = new Subject<string>();
-  public newAccessToken = this.newAccessTokenSubject.asObservable();
+  newAccessToken = this.newAccessTokenSubject.asObservable();
 
   constructor(private authenticationRepository: AuthenticationRepositoryService) {
     this.currentUsernameSubject.next(this.getUsernameFromToken());
   }
 
-  public authenticate(username: string, password: string) {
+  authenticate(username: string, password: string) {
     return this.authenticationRepository.signIn(username, password).pipe(
       tap(response => {
         localStorage.setItem('refreshToken', response.refreshToken);
@@ -34,7 +34,7 @@ export class AuthenticationService {
     );
   }
 
-  public isAuthenticated() {
+  isAuthenticated() {
     const refreshToken = this.getRefreshToken();
     const accessToken = this.getAccessToken();
 
@@ -67,7 +67,7 @@ export class AuthenticationService {
     return of(true);
   }
 
-  public refreshAccessToken() {
+  refreshAccessToken() {
     return this.authenticationRepository.refreshAccessToken(this.getRefreshToken()).pipe(
       tap(response => {
         localStorage.setItem('refreshToken', response.refreshToken);
@@ -80,12 +80,18 @@ export class AuthenticationService {
     );
   }
 
-  public logout() {
+  logout() {
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('accessToken');
 
     this.newAccessTokenSubject.next(null);
     this.currentUsernameSubject.next(null);
+  }
+
+  register(username: string, password: string) {
+    return this.authenticationRepository.signUp(username, password).pipe(map(response => {
+      return;
+    }));
   }
 
   private getUsernameFromToken(): string {
@@ -98,11 +104,11 @@ export class AuthenticationService {
     return null;
   }
 
-  public getAccessToken() {
+  getAccessToken() {
     return localStorage.getItem('accessToken') as string;
   }
 
-  public getRefreshToken() {
+  getRefreshToken() {
     return localStorage.getItem('refreshToken') as string;
   }
 }
